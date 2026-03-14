@@ -16,7 +16,7 @@ font-family:Arial, Helvetica, sans-serif;
 
 body{
 background:#000;
-color:white;
+color:greenyellow;
 }
 
 /* NAVBAR */
@@ -49,7 +49,7 @@ margin-left:25px;
 
 nav ul li a{
 text-decoration:none;
-color:white;
+color:aquamarine;
 font-size:16px;
 transition:0.3s;
 }
@@ -404,6 +404,7 @@ width:400px;
 
 @media (max-width:768px){
 
+
 /* Navbar */
 nav{
 flex-direction:column;
@@ -472,6 +473,177 @@ width:100%;
 }
 
 
+/* ===== MOBILE NAVBAR & HERO FIX ===== */
+@media (max-width:768px){
+  
+  /* Navbar fixes */
+  nav{
+    background: rgba(0,0,0,0.9); /* thoda opaque */
+    z-index: 100; /* upar dikhe sabke upar */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 5%;
+  }
+
+  nav ul{
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav ul li{
+    margin: 10px 0;
+  }
+
+  /* Hero padding so navbar ke neeche dikhe */
+  .hero{
+    padding-top: 160px; /* navbar height ke hisaab se */
+    text-align: center;
+    min-height: calc(100vh - 160px); /* height adjust ho jaaye */
+  }
+
+  /* About section mobile friendly */
+  .about-container{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img{
+    width: 100%;
+  }
+
+  /* Services mobile */
+  .services-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Membership mobile */
+  .membership-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Testimonials mobile */
+  .testimonials-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Contact mobile */
+  .contact-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map{
+    width: 100%;
+    height: 250px; /* iframe height fix */
+  }
+
+}
+/* MOBILE HAMBURGER NAVBAR */
+/* DESKTOP NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: rgba(0,0,0,0.7);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+nav .logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff3c00;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: aquamarine;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff3c00;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: aquamarine;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav.active ul {
+    display: flex;
+  }
+
+  .hero {
+    padding-top: 80px; /* navbar height */
+    min-height: calc(100vh - 80px);
+    text-align: center;
+  }
+}
+/* ===== MOBILE BODY FIX ===== */
+@media (max-width:768px){
+  body, html {
+    overflow-x: hidden; /* horizontal scroll remove */
+  }
+
+  /* Reduce padding for sections on mobile */
+  .hero, .about, .services, .equipment, .trainers,
+  .programs, .gallery, .membership, .testimonials, .contact {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  /* Reduce max-width for grids */
+  .equipment-container,
+  .trainers-container,
+  .programs-container,
+  .gallery-container {
+    max-width: 100%; /* mobile me full width */
+  }
+
+  /* Membership & Testimonials flex wrap properly */
+  .membership-container,
+  .testimonials-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 </style>
 </head>
 
@@ -480,18 +652,17 @@ width:100%;
 <!-- NAVBAR -->
 
 <nav>
-
-<div class="logo">FITGYM</div>
-
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">About</a></li>
-<li><a href="#">Services</a></li>
-<li><a href="#">Trainers</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
-
+  <div class="logo">FITGYM</div>
+  <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+  <ul class="nav-list">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About us</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Trainers</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
 </nav>
+
 
 
 <!-- HERO SECTION -->
@@ -538,7 +709,7 @@ Whether you want to lose weight, build muscle or stay fit,
 our gym has everything you need to transform your body.
 </p>
 
-<button class="about-btn">Learn More</button>
+<button class="about-btn">contact pls</button>
 
 </div>
 
@@ -762,7 +933,7 @@ our gym has everything you need to transform your body.
 
 <div class="contact-info">
 <p>📍 Patna, Bihar</p>
-<p>📞 +91 9876543210</p>
+<p>📞 no available</p>
 <p>✉️ gym@email.com</p>
 </div>
 
@@ -780,7 +951,12 @@ width="100%" height="250" style="border:0;"></iframe>
 document.querySelector(".btn").onclick = function(){
 alert("Welcome to our Gym!");
 }
+const mobileMenu = document.getElementById("mobile-menu");
+const nav = document.querySelector("nav");
 
+mobileMenu.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
 </script>
 
 </body>
