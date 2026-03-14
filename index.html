@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gym Website</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,0.7);
+position:fixed;
+width:100%;
+z-index:10;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+color:#ff3c00;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:16px;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#ff3c00;
+}
+
+/* HERO SECTION */
+
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f") center/cover no-repeat;
+display:flex;
+align-items:center;
+padding:0 8%;
+}
+
+.hero-content{
+max-width:600px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:30px;
+line-height:1.5;
+}
+
+.btn{
+padding:15px 35px;
+background:#ff3c00;
+border:none;
+color:white;
+font-size:18px;
+cursor:pointer;
+border-radius:5px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#ff6a00;
+transform:scale(1.05);
+}
+/* ABOUT SECTION */
+
+.about{
+padding:80px 8%;
+background:#111;
+}
+
+.about-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.about-image img{
+width:450px;
+border-radius:10px;
+}
+
+.about-text{
+max-width:500px;
+}
+
+.about-text h2{
+font-size:40px;
+margin-bottom:20px;
+color:#ff3c00;
+}
+
+.about-text p{
+font-size:17px;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+.about-btn{
+padding:12px 30px;
+background:#ff3c00;
+border:none;
+color:white;
+font-size:16px;
+cursor:pointer;
+border-radius:5px;
+transition:0.3s;
+}
+
+.about-btn:hover{
+background:#ff6a00;
+}
+/* SERVICES SECTION */
+
+/* SERVICES SECTION */
+
+.services{
+padding:80px 8%;
+background:#000;
+text-align:center;
+}
+
+.services-title{
+font-size:40px;
+margin-bottom:50px;
+color:#ff3c00;
+}
+
+.services-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.service-card{
+background:#111;
+padding:20px;
+width:250px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.service-card img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:15px;
+}
+
+.service-card h3{
+margin-bottom:10px;
+font-size:22px;
+}
+
+.service-card p{
+font-size:15px;
+line-height:1.5;
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+background:#1a1a1a;
+}
+/* GYM EQUIPMENT */
+
+.equipment{
+padding:80px 8%;
+background:#111;
+text-align:center;
+}
+
+.equipment-title{
+font-size:40px;
+color:#ff3c00;
+margin-bottom:50px;
+}
+
+.equipment-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+
+.equipment-card{
+background:#000;
+padding:15px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.equipment-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:10px;
+}
+
+.equipment-card h3{
+font-size:20px;
+}
+
+.equipment-card:hover{
+transform:translateY(-8px);
+background:#1a1a1a;
+}
+/* TRAINERS SECTION */
+
+.trainers{
+padding:80px 8%;
+background:#000;
+text-align:center;
+}
+
+.trainers-title{
+font-size:40px;
+margin-bottom:50px;
+color:#ff3c00;
+}
+
+.trainers-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+
+.trainer-card{
+background:#111;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.trainer-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.trainer-card h3{
+font-size:22px;
+margin-bottom:5px;
+}
+
+.trainer-card p{
+color:#ccc;
+}
+
+.trainer-card:hover{
+transform:translateY(-10px);
+background:#1a1a1a;
+}
+.programs{
+padding:80px 8%;
+background:#111;
+text-align:center;
+}
+
+.programs-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+}
+
+.program-card img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+}
+.gallery{
+padding:80px 8%;
+background:#000;
+text-align:center;
+}
+
+.gallery-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1100px;
+margin:auto;
+}
+
+.gallery-container img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+}
+.membership{
+padding:80px 8%;
+background:#111;
+text-align:center;
+}
+
+.membership-container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.plan{
+background:#000;
+padding:30px;
+width:250px;
+border-radius:10px;
+}
+
+.price{
+font-size:24px;
+color:#ff3c00;
+margin:10px 0;
+}
+.testimonials{
+padding:80px 8%;
+background:#000;
+text-align:center;
+}
+
+.testimonials-container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.testimonial{
+background:#111;
+padding:20px;
+width:250px;
+border-radius:10px;
+}
+.contact{
+padding:80px 8%;
+background:#111;
+text-align:center;
+}
+
+.contact-container{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+justify-content:center;
+}
+
+.contact-info{
+font-size:18px;
+}
+
+.map{
+width:400px;
+}
+/* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+
+/* Navbar */
+nav{
+flex-direction:column;
+align-items:flex-start;
+}
+
+nav ul{
+flex-direction:column;
+width:100%;
+margin-top:10px;
+}
+
+nav ul li{
+margin:10px 0;
+}
+
+/* Hero */
+.hero{
+height:auto;
+padding:120px 5% 60px;
+text-align:center;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+/* About section */
+.about-container{
+flex-direction:column;
+text-align:center;
+}
+
+.about-image img{
+width:100%;
+}
+
+/* Services */
+.services-container{
+flex-direction:column;
+align-items:center;
+}
+
+/* Membership */
+.membership-container{
+flex-direction:column;
+align-items:center;
+}
+
+/* Testimonials */
+.testimonials-container{
+flex-direction:column;
+align-items:center;
+}
+
+/* Contact */
+.contact-container{
+flex-direction:column;
+align-items:center;
+}
+
+.map{
+width:100%;
+}
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">FITGYM</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Trainers</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Build Your Dream Body</h1>
+
+<p>
+Join the best fitness gym in your city. Professional trainers,
+modern equipment and powerful workout programs.
+</p>
+
+<button class="btn">Join Now</button>
+
+</div>
+
+</section>
+<!-- ABOUT GYM SECTION -->
+
+<section class="about">
+
+<div class="about-container">
+
+<div class="about-image">
+<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e" alt="Gym">
+</div>
+
+<div class="about-text">
+
+<h2>About Our Gym</h2>
+
+<p>
+Welcome to FitGym, the best fitness center in the city.
+We provide modern equipment, professional trainers and
+the best workout programs to help you achieve your
+fitness goals.
+</p>
+
+<p>
+Whether you want to lose weight, build muscle or stay fit,
+our gym has everything you need to transform your body.
+</p>
+
+<button class="about-btn">Learn More</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- SERVICES SECTION -->
+
+<section class="services">
+
+<h2 class="services-title">Our Services</h2>
+
+<div class="services-container">
+
+<div class="service-card">
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" alt="">
+<h3>Personal Training</h3>
+<p>Professional trainers help you achieve your fitness goals faster.</p>
+</div>
+
+<div class="service-card">
+<img src="https://images.unsplash.com/photo-1546484959-f2c4c8b09b7a" alt="">
+<h3>Cardio Training</h3>
+<p>Improve stamina and burn calories with our cardio programs.</p>
+</div>
+
+<div class="service-card">
+<img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c" alt="">
+<h3>Weight Lifting</h3>
+<p>Build muscle and strength using modern gym equipment.</p>
+</div>
+
+<div class="service-card">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="">
+<h3>Yoga Classes</h3>
+<p>Relax your body and mind with guided yoga sessions.</p>
+</div>
+</section>
+<!-- GYM EQUIPMENT SECTION -->
+
+<section class="equipment">
+
+<h2 class="equipment-title">Gym Equipment</h2>
+
+<div class="equipment-container">
+
+<div class="equipment-card">
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61" alt="">
+<h3>Treadmill</h3>
+</div>
+
+<div class="equipment-card">
+<img src="https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a" alt="">
+<h3>Dumbbells</h3>
+</div>
+
+<div class="equipment-card">
+<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48" alt="">
+<h3>Bench Press</h3>
+</div>
+
+<div class="equipment-card">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="">
+<h3>Squat Rack</h3>
+</div>
+
+<div class="equipment-card">
+<img src="https://images.unsplash.com/photo-1517964108473-15c95d7d8c9f" alt="">
+<h3>Leg Press</h3>
+</div>
+
+<div class="equipment-card">
+<img src="https://images.unsplash.com/photo-1576678927484-cc907957088c" alt="">
+<h3>Cable Machine</h3>
+</div>
+
+</div>
+
+</section>
+<!-- TRAINERS SECTION -->
+
+<section class="trainers">
+
+<h2 class="trainers-title">Our Trainers</h2>
+
+<div class="trainers-container">
+
+<div class="trainer-card">
+<img src="https://images.unsplash.com/photo-1605296867424-35fc25c9212a" alt="">
+<h3>Rahul Sharma</h3>
+<p>Strength Trainer</p>
+</div>
+
+<div class="trainer-card">
+<img src="https://images.unsplash.com/photo-1594381898411-846e7d193883" alt="">
+<h3>Aman Verma</h3>
+<p>Fitness Coach</p>
+</div>
+
+<div class="trainer-card">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e" alt="">
+<h3>Priya Singh</h3>
+<p>Yoga Instructor</p>
+</div>
+
+<div class="trainer-card">
+<img src="https://images.unsplash.com/photo-1549476464-37392f717541" alt="">
+<h3>Vikram Patel</h3>
+<p>Cardio Expert</p>
+</div>
+
+</div>
+
+</section>
+<!-- WORKOUT PROGRAMS -->
+
+<section class="programs">
+
+<h2 class="section-title">Workout Programs</h2>
+
+<div class="programs-container">
+
+<div class="program-card">
+<img src="https://images.unsplash.com/photo-1517964108473-15c95d7d8c9f">
+<h3>Weight Loss</h3>
+</div>
+
+<div class="program-card">
+<img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
+<h3>Muscle Building</h3>
+</div>
+
+<div class="program-card">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+<h3>Cardio Training</h3>
+</div>
+
+</div>
+
+</section>
+<!-- GALLERY -->
+
+<section class="gallery">
+
+<h2 class="section-title">Gym Gallery</h2>
+
+<div class="gallery-container">
+
+<img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48">
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+<img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c">
+<img src="https://images.unsplash.com/photo-1546484959-f2c4c8b09b7a">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
+
+</div>
+
+</section>
+<!-- MEMBERSHIP -->
+
+<section class="membership">
+
+<h2 class="section-title">Membership Plans</h2>
+
+<div class="membership-container">
+
+<div class="plan">
+<h3>Basic</h3>
+<p class="price">₹999 / month</p>
+<p>Gym Access</p>
+</div>
+
+<div class="plan">
+<h3>Premium</h3>
+<p class="price">₹1999 / month</p>
+<p>Gym + Trainer</p>
+</div>
+
+<div class="plan">
+<h3>Elite</h3>
+<p class="price">₹2999 / month</p>
+<p>All Facilities</p>
+</div>
+
+</div>
+
+</section>
+<!-- TESTIMONIALS -->
+
+<section class="testimonials">
+
+<h2 class="section-title">What Clients Say</h2>
+
+<div class="testimonials-container">
+
+<div class="testimonial">
+<p>"Best gym in the city!"</p>
+<h4>- Rohit</h4>
+</div>
+
+<div class="testimonial">
+<p>"Amazing trainers and equipment."</p>
+<h4>- Aman</h4>
+</div>
+
+<div class="testimonial">
+<p>"I lost 10kg in 3 months."</p>
+<h4>- Priya</h4>
+</div>
+
+</div>
+
+</section>
+<!-- CONTACT -->
+
+<section class="contact">
+
+<h2 class="section-title">Contact Us</h2>
+
+<div class="contact-container">
+
+<div class="contact-info">
+<p>📍 Patna, Bihar</p>
+<p>📞 +91 9876543210</p>
+<p>✉️ gym@email.com</p>
+</div>
+
+<div class="map">
+<iframe 
+src="https://www.google.com/maps?q=patna&output=embed"
+width="100%" height="250" style="border:0;"></iframe>
+</div>
+
+</div>
+
+</section>
+<script>
+
+document.querySelector(".btn").onclick = function(){
+alert("Welcome to our Gym!");
+}
+
+</script>
+
+</body>
+</html>
